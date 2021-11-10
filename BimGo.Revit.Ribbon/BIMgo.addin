@@ -2,7 +2,7 @@
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>Application RibbonTab</Name>
-     <Assembly>.\BIMgo\BimGo.Revit.Ribbon.dll</Assembly>
+     <Assembly>.\BimGo.Revit\BimGo.Revit.Ribbon.dll</Assembly>
     <FullClassName>BimGo.Revit.Ribbon.App</FullClassName>
     <ClientId>c421bb19-24bd-4657-8e50-848201b16e6c</ClientId>
     <VendorId>ADSK</VendorId>
