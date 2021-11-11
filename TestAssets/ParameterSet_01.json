@@ -1,0 +1,123 @@
+{
+  "SharedParameters": {
+    "TotalCount": 15,
+    "Nodes": [
+      {
+        "Id": "09d88434-ad2f-40aa-8f0f-0b221b706b7f",
+        "Name": "Geometry",
+        "Description": "Geometry parameter ribbon version 1.0.1",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000123,
+        "SharedParameterGroupId": 3,
+        "BuiltInCategories": [-2000011, -2000032, 568]
+      },
+      {
+        "Id": "1e16af51-45b9-488a-be04-53780bf58e34",
+        "Name": "Localisation",
+        "Description": "Localisation parameter ribbon version 0.1.0",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000123,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "4fbc6e61-6895-43dc-9e10-9bc5d1b39c51",
+        "Name": "ExposureClass",
+        "Description": "X0 | XC1 | XC2 | XC3 | XC4 | XD1 | XD2 | XD3 | XS1 | XS2 | XS3 | XF1 | XF2 | XF3 | XF4 | XA1 | XA2 | XA3 | XM1 | XM2 | XM3",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000123,
+        "SharedParameterGroupId": 3,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "58b288a5-3fe6-4180-887e-5d5d9a5dbf8d",
+        "Name": "SteelClassPNEN",
+        "Description": "A-1 | A-I | A-II | A-III | A-IIIN",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000123,
+        "SharedParameterGroupId": 2,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "8ad16d38-c387-405f-b8a1-cc8aec17d2ec",
+        "Name": "SteelClassPNB",
+        "Description": "A-1 | A-I | A-II | A-III | A-IIIN",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000123,
+        "SharedParameterGroupId": 2,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "adba5b00-d3fb-4fea-aacf-e1b7b24a96ec",
+        "Name": "Category",
+        "Description": "Category parameter ribbon version 0.5.1",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000123,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011, -2000032, 568, -2001320]
+      },
+      {
+        "Id": "bb13cfb7-7c4e-4d29-8654-12aa11d4d56c",
+        "Name": "Shield",
+        "Description": "Shield parameter ribbon version 0.5.1",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000100,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011, -2000032]
+      },
+      {
+        "Id": "bfa45c3f-18d8-4ef5-8cae-ff6a0b28a2ba",
+        "Name": "ConcreteType",
+        "Description": "MONOLITHIC / PREFABRICATED ",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000100,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "cd989918-9264-4d83-b120-3c26e2470457",
+        "Name": "Access",
+        "Description": "WITH ACCESS | UNDER BRACING SLAB | UNDER STRUTS",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000100,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011, -2000032]
+      },
+      {
+        "Id": "df2b4738-a757-4fdc-98da-78c8b155a7ee",
+        "Name": "ConcreteFinishing",
+        "Description": "ARCHITECTURAL CONCRETE",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000100,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "e4209ccf-b611-41b8-b660-3aa6012d9e91",
+        "Name": "ReinforcementType",
+        "Description": "SAS REINFORCEMENT",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000100,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011]
+      },
+      {
+        "Id": "e4202ccf-b611-4158-b660-3aa6012d9e92",
+        "Name": "PlinthHeight",
+        "Description": "Plinth Height parameter ribbon version 0.5.1",
+        "ParameterType": 1,
+        "BuiltInParameterGroup": -5000100,
+        "SharedParameterGroupId": 1,
+        "BuiltInCategories": [-2000011, -2000160]
+      }
+    ]
+  },
+  "SharedParameterGroups": {
+    "TotalCount": 9,
+    "Nodes": [
+      { "Id": 1, "Name": "General" },
+      { "Id": 2, "Name": "Offers" },
+      { "Id": 3, "Name": "Construction" }
+    ]
+  }
+}
