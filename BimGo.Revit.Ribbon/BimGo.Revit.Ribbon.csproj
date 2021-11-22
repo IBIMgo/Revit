@@ -60,18 +60,17 @@
     <Compile Include="Parameters\UpdateSharedParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-if exist "$(AppData)\Autodesk\REVIT\Addins\2020" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2020"
+if exist "$(AppData)\Autodesk\REVIT\Addins\2022" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2022"
 
-if not exist "$(AppData)\Autodesk\REVIT\Addins\2020\$(SolutionName)" mkdir "$(AppData)\Autodesk\REVIT\Addins\2020\$(SolutionName)"
-if not exist "$(AppData)\Autodesk\REVIT\Addins\2020\$(SolutionName)Resources" mkdir "$(AppData)\Autodesk\REVIT\Addins\2020\$(SolutionName)\Resources"
-if exist "$(AppData)\Autodesk\REVIT\Addins\2020" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2020\$(SolutionName)"
+if not exist "$(AppData)\Autodesk\REVIT\Addins\2022\$(SolutionName)" mkdir "$(AppData)\Autodesk\REVIT\Addins\2022\$(SolutionName)"
+if not exist "$(AppData)\Autodesk\REVIT\Addins\2022\$(SolutionName)Resources" mkdir "$(AppData)\Autodesk\REVIT\Addins\2022\$(SolutionName)\Resources"
+if exist "$(AppData)\Autodesk\REVIT\Addins\2022" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2022\$(SolutionName)"
 
-if exist "$(AppData)\Autodesk\REVIT\Addins\2020" xcopy "$(ProjectDir)Resources" "$(AppData)\Autodesk\REVIT\Addins\2020\$(SolutionName)\Resources" /S /Y
-    </PostBuildEvent>
+if exist "$(AppData)\Autodesk\REVIT\Addins\2022" xcopy "$(ProjectDir)Resources" "$(AppData)\Autodesk\REVIT\Addins\2022\$(SolutionName)\Resources" /S /Y
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.

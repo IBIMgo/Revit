@@ -9,7 +9,7 @@ namespace BimGo.Revit.Ribbon
         
         public static class Assets
         {
-            public static readonly string DefaultFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Autodesk\Revit\Addins\2020\BimGo.Revit\Resources\";
+            public static readonly string DefaultFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Autodesk\Revit\Addins\2022\BimGo.Revit\Resources\";
             public static readonly string DefaultImage = $@"{DefaultFolder}default.png";
         }
         
