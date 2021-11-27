@@ -22,6 +22,10 @@ namespace BimGo.Revit.Ribbon.Panels
             {
                 parameters.AddButton(instance);
             }
+            foreach (var instance in Assembly.GetTypesByPanelName(Constants.PanelName.Copier))
+            {
+                parameters.AddButton(instance);
+            }
         }
 
         private static void CreatePanel(string panelName)
