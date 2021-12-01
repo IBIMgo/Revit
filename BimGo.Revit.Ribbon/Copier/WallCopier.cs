@@ -21,7 +21,9 @@ namespace BimGo.Revit.Ribbon.Parameters
             Selection sel = app.ActiveUIDocument.Selection;
             Reference pickedref = sel.PickObject(ObjectType.Element, "pick a wall");
             Element elem = doc.GetElement(pickedref);
-
+            Parameter h = elem.get_Parameter(BuiltInParameter.WALL_USER_HEIGHT_PARAM);
+            double hAsDouble = h.AsDouble();
+            ElementId elemid = elem.GetTypeId();
 
             Form1 form1 = new Form1(commandData);
             form1.ShowDialog();
@@ -39,12 +41,7 @@ namespace BimGo.Revit.Ribbon.Parameters
             trans.Start();
 
             Curve newlocation = cv.Curve.CreateTransformed(Transform.CreateTranslation(vector));
-            Wall offsetWall = Wall.Create(doc, newlocation, wall.LevelId, false);                   //idk why the wall it creates is exactly two times smaller in height
-            Parameter h = offsetWall.get_Parameter(BuiltInParameter.WALL_USER_HEIGHT_PARAM);        //compared to the original one
-            string hAsString = h.AsValueString();                                                   //EDIT: from what i've tested not every wall is copied the same and some
-            double hAsDouble = Convert.ToDouble(hAsString);                                         //are getting copied with the right height
-            hAsDouble = hAsDouble * 2 / 304.8;                                                      //so the multipication/division at the left is unnecessary some times, weird
-            h.Set(hAsDouble);
+            Wall.Create(doc, newlocation, elemid, wall.LevelId, hAsDouble, 0, false, false);
 
             trans.Commit();
 

@@ -22,9 +22,10 @@ namespace BimGo.Revit.Ribbon.Panels
             {
                 parameters.AddButton(instance);
             }
+            var copier = _bimGoTab.CreateRibbonPanel(RibbonTab, Constants.PanelName.Copier);
             foreach (var instance in Assembly.GetTypesByPanelName(Constants.PanelName.Copier))
             {
-                parameters.AddButton(instance);
+                copier.AddButton(instance);
             }
         }
 
