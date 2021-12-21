@@ -7,7 +7,7 @@ using System;
 
 namespace BimGo.Revit.Ribbon.Parameters
 {
-    [Display("Wall Copier", 20, Constants.PanelName.Copier)]        //expected a new category to appear named "copier" but the new button is still in the "parameters" category
+    [Display("Wall Copier", 20, Constants.PanelName.Copier)]
     [Transaction(TransactionMode.Manual)]
     public class WallCopier : IExternalCommand
     {

@@ -59,6 +59,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Copier\WallCopier.cs" />
+    <Compile Include="Parameters\CreateSharedParameter.cs" />
     <Compile Include="UserInput\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
