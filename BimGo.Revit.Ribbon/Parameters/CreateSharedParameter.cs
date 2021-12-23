@@ -28,35 +28,64 @@ namespace BimGo.Revit.Ribbon.Parameters
             {
                 File.CreateText(path);
             }
+
             app.SharedParametersFilename = path;
-            DefinitionFile defFile = app.OpenSharedParameterFile();
-            defFile.Groups.Create("testGroup");                         //seems as if it has to check for the existance of a parameter with such name cuz this line crashes revit (but not when defFile is empty)
-            DefinitionGroups defGroups = defFile.Groups;
-            DefinitionGroup defGroup = defGroups.Create("test parameter");
+            DefinitionFile defFile = app.OpenSharedParameterFile();         //so far working only on the wall parameter cuz easier to manage
+            //tries to create a shared parameter
+            try
+            {
+                DefinitionGroups defGroups = defFile.Groups;
+                DefinitionGroup defGroup = defGroups.Create("bimgo parameters");
 
-            ExternalDefinitionCreationOptions option = new ExternalDefinitionCreationOptions("bimgo wall parameter", ParameterType.Text);
-            option.UserModifiable = false;
-            option.Description = "sample text as an added parameter";
-            Definition def = defGroup.Definitions.Create(option);
+                ExternalDefinitionCreationOptions option = new ExternalDefinitionCreationOptions("BimGoComment", ParameterType.Text);
+                option.UserModifiable = true;
+                option.Description = "type of an element";
+                option.Name = "BimGoComment";
+                Definition def = defGroup.Definitions.Create(option);
 
+                CategorySet categories = uiapp.Application.Create.NewCategorySet();
+                Category catwall = Category.GetCategory(uiapp.ActiveUIDocument.Document, BuiltInCategory.OST_Walls);
+                categories.Insert(catwall);
 
-            CategorySet categories = uiapp.Application.Create.NewCategorySet();
-            Category category = Category.GetCategory(uiapp.ActiveUIDocument.Document, BuiltInCategory.OST_Walls);
+                InstanceBinding instanceBinding = uiapp.Application.Create.NewInstanceBinding(categories);
+                BindingMap bindingMap = uiapp.ActiveUIDocument.Document.ParameterBindings;
 
-            categories.Insert(category);
+                Transaction t = new Transaction(doc, "adding a parameter");
 
+                t.Start();
+                bindingMap.Insert(def, instanceBinding, BuiltInParameterGroup.PG_TEXT);
+                t.Commit();
+            }
+            //exception below occurs when trying to create DefinitionGroup that already exists, this catch then loads the existing parameter
+            catch (Autodesk.Revit.Exceptions.InvalidOperationException)
+            {
+                
+                foreach (DefinitionGroup dg in defFile.Groups)
+                {
+                    foreach (Definition def in dg.Definitions)
+                    {
+                        if (def.Name == "BimGoComment")
+                        {
+                            CategorySet categories = uiapp.Application.Create.NewCategorySet();
+                            Category catwall = Category.GetCategory(uiapp.ActiveUIDocument.Document, BuiltInCategory.OST_Walls);
+                            categories.Insert(catwall);
 
-            InstanceBinding instanceBinding = uiapp.Application.Create.NewInstanceBinding(categories);
+                            InstanceBinding instanceBinding = uiapp.Application.Create.NewInstanceBinding(categories);
+                            BindingMap bindingMap = uiapp.ActiveUIDocument.Document.ParameterBindings;
 
-            BindingMap bindingMap = uiapp.ActiveUIDocument.Document.ParameterBindings;
+                            Transaction t1 = new Transaction(doc, "loading an existing parameter");
 
-            Transaction t = new Transaction(doc, "adding a parameter");
+                            t1.Start();
+                            bindingMap.Insert(def, instanceBinding, BuiltInParameterGroup.PG_TEXT);
+                            t1.Commit();
+                            
+                        }
+                    }
+                }
 
-            t.Start();
-            bindingMap.Insert(def, instanceBinding, BuiltInParameterGroup.PG_TEXT);
-            t.Commit();
-
-            return Result.Succeeded;            //the parameter it adds is empty, will have to fix it
+                
+            }
+            return Result.Succeeded;
 
         }
     }
